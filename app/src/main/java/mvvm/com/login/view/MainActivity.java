@@ -61,17 +61,17 @@ public class MainActivity extends AppCompatActivity  {
 
   public void getUsersList(){
     Call<List<UserBean>> call = userService.getUsers();
+    Context context = getApplicationContext();
+    CharSequence text = "Hello toast!"+call;
+    int duration = Toast.LENGTH_SHORT;
+
+    Toast toast = Toast.makeText(context, text, duration);
+    toast.show();
     call.enqueue(new Callback<List<UserBean>>() {
       @Override
       public void onResponse(Call<List<UserBean>> call, retrofit2.Response<List<UserBean>> response) {
         if(response.isSuccessful()){
           list = response.body();
-          Context context = getApplicationContext();
-          CharSequence text = "Hello toast!"+list;
-          int duration = Toast.LENGTH_SHORT;
-
-          Toast toast = Toast.makeText(context, text, duration);
-          toast.show();
           listView.setAdapter(new UserAdapter(MainActivity.this, R.layout.list_user, list));
         }
       }

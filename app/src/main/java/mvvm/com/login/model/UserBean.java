@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 public class UserBean {
   @SerializedName("address")
   @Expose
-  private int id;
+  private String id;
 
   @SerializedName("emergency_type")
   @Expose
@@ -15,16 +15,16 @@ public class UserBean {
   public UserBean() {
   }
 
-  public UserBean(int id, String name) {
+  public UserBean(String id, String name) {
     this.id = id;
     this.name = name;
   }
 
-  public int getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(String id) {
     this.id = id;
   }
 

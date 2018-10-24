@@ -34,7 +34,7 @@ public class UserAdapter  extends ArrayAdapter<UserBean> {
     TextView txtUserId = (TextView) rowView.findViewById(R.id.txtUserId);
     TextView txtUsername = (TextView) rowView.findViewById(R.id.txtUsername);
 
-    txtUserId.setText(String.format("#ID: %d", users.get(pos).getId()));
+    txtUserId.setText(String.format("#ID: %s", users.get(pos).getId()));
     txtUsername.setText(String.format("USER NAME: %s", users.get(pos).getName()));
 
     rowView.setOnClickListener(new View.OnClickListener() {
