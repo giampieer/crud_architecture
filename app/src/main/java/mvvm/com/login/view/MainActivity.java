@@ -1,6 +1,6 @@
-package mvvm.com.login;
+package mvvm.com.login.view;
 
-import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,24 +8,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-
-import com.google.gson.Gson;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
+import mvvm.com.login.R;
+import mvvm.com.login.UserAdapter;
 import mvvm.com.login.model.APIUtils;
 import mvvm.com.login.model.ApiService;
-import mvvm.com.login.model.Session;
-import mvvm.com.login.model.TokenRenewInterceptor;
 import mvvm.com.login.model.UserBean;
-import okhttp3.OkHttpClient;
-import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity  {
   Button btnAddUser;
@@ -72,13 +66,19 @@ public class MainActivity extends AppCompatActivity  {
       public void onResponse(Call<List<UserBean>> call, retrofit2.Response<List<UserBean>> response) {
         if(response.isSuccessful()){
           list = response.body();
+          Context context = getApplicationContext();
+          CharSequence text = "Hello toast!"+list;
+          int duration = Toast.LENGTH_SHORT;
+
+          Toast toast = Toast.makeText(context, text, duration);
+          toast.show();
           listView.setAdapter(new UserAdapter(MainActivity.this, R.layout.list_user, list));
         }
       }
 
       @Override
       public void onFailure(Call<List<UserBean>> call, Throwable t) {
-        Log.e("ERROR: ", t.getMessage());
+        Log.e("ERRORww: ", t.getMessage());
       }
     });
   }

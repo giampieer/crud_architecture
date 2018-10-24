@@ -1,4 +1,4 @@
-package mvvm.com.login;
+package mvvm.com.login.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import mvvm.com.login.R;
 import mvvm.com.login.model.APIUtils;
 import mvvm.com.login.model.ApiService;
 import mvvm.com.login.model.UserBean;
