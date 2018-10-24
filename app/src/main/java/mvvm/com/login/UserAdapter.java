@@ -9,9 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.util.List;
-
 import mvvm.com.login.model.UserBean;
 import mvvm.com.login.view.UserActivity;
 
@@ -47,7 +45,6 @@ public class UserAdapter  extends ArrayAdapter<UserBean> {
         context.startActivity(intent);
       }
     });
-
     return rowView;
   }
 }

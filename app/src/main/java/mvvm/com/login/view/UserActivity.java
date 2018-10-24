@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import mvvm.com.login.R;
 import mvvm.com.login.model.APIUtils;
 import mvvm.com.login.model.ApiService;
@@ -32,22 +31,18 @@ public class UserActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_user);
-
     setTitle("Users");
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     txtUId = (TextView) findViewById(R.id.txtUId);
     edtUId = (EditText) findViewById(R.id.edtUId);
     edtUsername = (EditText) findViewById(R.id.edtUsername);
     btnSave = (Button) findViewById(R.id.btnSave);
     btnDel = (Button) findViewById(R.id.btnDel);
-
     userService = APIUtils.getUserService();
 
     Bundle extras = getIntent().getExtras();
     final String userId = extras.getString("user_id");
     String userName = extras.getString("user_name");
-
     edtUId.setText(userId);
     edtUsername.setText(userName);
 
@@ -78,7 +73,6 @@ public class UserActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         deleteUser(Integer.parseInt(userId));
-
         Intent intent = new Intent(UserActivity.this, MainActivity.class);
         startActivity(intent);
       }
@@ -144,7 +138,6 @@ public class UserActivity extends AppCompatActivity {
         finish();
         return true;
     }
-
     return super.onOptionsItemSelected(item);
   }
 }
