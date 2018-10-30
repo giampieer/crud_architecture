@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class Employee {
-    @SerializedName("url")
+    @SerializedName("image")
     private String name;
     @SerializedName("title")
     private String email;

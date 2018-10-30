@@ -4,7 +4,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -32,6 +35,8 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.Employ
 
     @Override
     public void onBindViewHolder(EmployeeViewHolder holder, int position) {
+        Picasso.get().load(dataList.get(position).getName()).into(holder.imagen);
+
         holder.txtEmpName.setText(dataList.get(position).getName());
         holder.txtEmpEmail.setText(dataList.get(position).getEmail());
         holder.txtEmpPhone.setText(dataList.get(position).getPhone());
@@ -45,9 +50,11 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.Employ
     class EmployeeViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtEmpName, txtEmpEmail, txtEmpPhone;
+        ImageView imagen;
 
         EmployeeViewHolder(View itemView) {
             super(itemView);
+            imagen = (ImageView) itemView.findViewById(R.id.imageView);
             txtEmpName = (TextView) itemView.findViewById(R.id.txt_employee_name);
             txtEmpEmail = (TextView) itemView.findViewById(R.id.txt_employee_email);
             txtEmpPhone = (TextView) itemView.findViewById(R.id.txt_employee_phone);
